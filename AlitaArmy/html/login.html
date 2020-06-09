@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <script src="http://code.jquery.com/jquery-2.1.4.min.js" charset="utf-8"></script>
+
+      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <title>Accede a AlitaArmy Gallery</title>
+    <link rel="stylesheet" href="../css/login.css">
+  </head>
+  <body>
+    <div class="modal-dialog text-center">
+      <div class="col-sm-9 main-section">
+        <div class="modal-content">
+          <div class="user-img col-12">
+            <img id="imagen" src="../img/alitabb.jpeg" alt="">
+          </div>
+          <div class="col-12 form-input" >
+              <form class="datos">
+                <div class="form-group">
+                  <input id="mail" name="mail" type="email" class="form-control" placeholder="Ingresa tu email">
+                </div>
+                <div class="form-group">
+                  <input id="pass" name="pass" type="password" class="form-control" style="visibility:hidden;" placeholder="ingresa tu contraseña">
+                  <a class="eye" style="font-family:fontAwesome; visibility: hidden;" > <i class="fas fa-eye"></i> </a>
+                </div>
+                <button type="button" id="enviar" class="btn btn-success" name="button">Ingresar</button>
+              </form>
+          </div>
+          <div class="col-12 forgot">
+            <a href="registrar.html">¿No estas Registrado? registrate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="container text-center">
+  <div class="col-12">
+    <div class="alert ">
+      <!-- <button type="button" data-dismiss="alert" class="close"> <span>&times;</span> </button>-->
+      <h6 id="res"></h6>
+    </div>
+  </div>
+</div>
+
+
+    <script type="text/javascript">
+
+    var userAsign = false;
+
+    function verificarUsuario(){
+      if($('#mail').val() != ""){
+        $.ajax({
+          url: '../php/login_access.php',
+          type: 'POST',
+          data: $('.datos').serialize(),
+          success: function(res){
+            if(res != 'false'){
+
+              $('#imagen').remove();
+              $('.user-img').html(res);
+              $('#imagen').css({'border-radius' : '50%'});
+
+              $('#res').html("Correo Confirmado");
+              $('.alert').removeClass('alert-danger');
+                $('.alert').removeClass("alert-warning");
+              $('.alert').addClass("alert-success");
+              setTimeout(function(){
+                  $('.container').css({'visibility': 'hidden'});
+              }, 5000);
+
+              $('.container').css({'visibility': 'visible'});
+
+              $('#mail').prop("disabled", true);
+              $('#mail').css({
+                'background': 'none',
+                'font-size': '1.6em',
+                'padding': '0',
+                'color': '#FFF',
+                'text-align':'center'
+              });
+
+              $('#pass').css({'visibility':'visible'});
+              $('.eye').css({'visibility':'visible'});
+              userAsign = true;
+            }else{
+
+              $('.user-img').html('<img id="imagen" src="../img/alitabb.jpeg" alt="">');
+              $('#res').html('Error no se ha encotrado ningun usuario si no lo eres <a class="alert-link" href="registrar.html"> haz click aqui</a>');
+              $('.alert').removeClass('alert-success');
+                $('.alert').removeClass("alert-warning");
+              $('.alert').addClass("alert-danger");
+              setTimeout(function(){
+                  $('.container').css({'visibility': 'hidden'});
+              }, 5000);
+              $('.container').css({'visibility': 'visible'});
+
+            }
+
+          }
+        });
+
+      }else{
+        $('#res').html("No puedes Dejar El input Vacio intenta Llenarlo y continuar");
+        $('.alert').removeClass('alert-success');
+        $('.alert').removeClass('alert-danger');
+        $('.alert').addClass("alert-warning");
+        setTimeout(function(){
+            $('.container').css({'visibility': 'hidden'});
+        }, 5000);
+        $('.container').css({'visibility': 'visible'});
+
+      }
+
+    }
+
+    function verificarPassword(){
+
+      if($('#pass').val() != ""){
+        var datosForm = new FormData();
+        datosForm.append("mail", $('#mail').prop('value'));
+        datosForm.append("pass", $('#pass').prop('value'));
+
+        $.ajax({
+          url: '../php/login_complete.php',
+          type: 'POST',
+          contentType: false,
+          data: datosForm,
+          processData: false,
+          cache: false,
+          success: function(res){
+            if(res == "true"){
+              $('#pass').prop("disabled", true);
+              $('#pass').css({
+                'background': 'none',
+                'font-size': '1.6em',
+                'padding': '0',
+                'color': '#FFF',
+                'text-align':'center'
+              });
+              $('.eye').css({'visibility':'hidden'});
+
+              $('#res').html("Acceso Confrimado Porfavor espere...");
+              $('.alert').removeClass('alert-danger');
+                $('.alert').removeClass("alert-warning");
+              $('.alert').addClass("alert-success");
+              setTimeout(function(){
+                  $('.container').css({'visibility': 'hidden'});
+                  window.location.href = "../index.html";
+              }, 5000);
+              $('.container').css({'visibility': 'visible'});
+
+            }else{
+              $('#res').html("La contraseña es incorrecta intenta de nuevo");
+              $('.alert').removeClass('alert-success');
+              $('.alert').removeClass('alert-warning');
+              $('.alert').addClass("alert-danger");
+              setTimeout(function(){
+                  $('.container').css({'visibility': 'hidden'});
+              }, 5000);
+              $('.container').css({'visibility': 'visible'});
+
+            }
+
+            }
+
+        });
+
+      }else{
+        $('#res').html("No puedes Dejar El input Vacio intenta Llenarlo y continuar");
+        $('.alert').removeClass('alert-success');
+        $('.alert').removeClass('alert-danger');
+        $('.alert').addClass("alert-warning");
+        setTimeout(function(){
+            $('.container').css({'visibility': 'hidden'});
+        }, 5000);
+        $('.container').css({'visibility': 'visible'});
+
+      }
+
+
+    }
+
+
+
+    var activo = false;
+
+    $('.eye').click(function (){
+
+      if(activo == false){
+        activo = true;
+        $('#pass').attr('type','text');
+        $('i').removeClass('fas fa-eye');
+        $('i').addClass('far fa-eye-slash');
+      }else{
+        activo = false;
+        $('#pass').attr('type','password');
+        $('i').removeClass('far fa-eye-slash');
+        $('i').addClass('fas fa-eye');
+      }
+
+
+
+
+    });
+
+
+    $('#enviar').click(function (){
+
+      if (userAsign) {
+        verificarPassword();
+      }else{
+        verificarUsuario();
+      }
+
+
+
+
+    });
+
+    </script>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
