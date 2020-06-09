@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Acceder A CoffeSystem</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+
+    <div class="content">
+
+      <form autocomplete="off" class="form" action="../php/access.php" method="post">
+
+        <div class="imagenUser">
+          <img id="imagen" src="../img/interfaz.svg" alt="">
+        </div>
+
+
+        <span>Escribe Tu correo Electronico</span>
+        <input class="cajaIn" type="text" name="email" value="">
+
+
+      <button type="button" class="validar" id="enviar" name="button">Validar</button>
+
+
+      <p id="res"></p>
+
+      </form>
+
+
+
+    </div>
+
+
+  </body>
+
+<script type="text/javascript" defer>
+
+
+
+userAsign = false;
+
+function validarUsuario (){
+  if( $('.cajaIn').val() != "" ){
+    $.ajax({
+      url: '../php/access.php',
+      type: 'POST',
+      data: $('.form').serialize(),
+      success: function(res){
+        if(res == "error No se Detecto usuario"){
+          $('#res').css({'background' : 'red', 'transition': '0.3s'});
+            $('#res').html(res);
+        }else{
+          $('#res').css({'background' : 'lime', 'transition': '0.3s'});
+            $('#imagen').remove();
+            $('.imagenUser').html(res);
+            $('#imagen').css({'border-radius' : '50%'});
+            $('#res').html("Validado Correctamente");
+            cambiarTexto();
+            userAsign = true;
+        }
+
+      }
+    })
+  }else{
+    $('#res').css({'background': 'gray', 'transition' : '0.4s'});
+    $('#res').html("Error Input Vacio");
+  }
+
+}
+
+$('#enviar').click(function(){
+
+if (userAsign) {
+  validarPassword();
+}else{
+  validarUsuario();
+}
+
+
+
+});
+
+$(document).ready(function(){
+
+  $('.form').keypress(function(e){
+    var code = (e.keyCode ? e.keyCode : e.which);
+       if(code==13){
+           validarUsuario();
+           return false;
+       }
+  });
+
+  $('.cajaIn').keypress(function(e){
+    var code = (e.keyCode ? e.keyCode : e.which);
+       if(code==13){
+           validarUsuario();
+           return false;
+       }
+
+  });
+
+});
+
+</script>
+
+<script type="text/javascript" defer>
+
+function cambiarTexto(){
+    $('.form > span').text("Escribe tu Contraseña");
+    $('.form > span').css({'left' : '30%'});
+    $('.cajaIn').val("");
+
+}
+
+function validarPassword(){
+  $.ajax({
+    url: '../php/accessPas.php',
+    type: 'POST',
+    data: $('.form').serialize(),
+    success: function(res){
+        if(res == "true"){
+          window.location.href = "../index.html";
+        }else{
+          $('#res').css({'background' : 'red', 'transition': '0.3s'});
+            $('#res').html(res);
+        }
+    }
+  });
+}
+
+</script>
+
+
+</html>

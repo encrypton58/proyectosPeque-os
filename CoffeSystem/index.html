@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>CoffeSystem</title>
+  </head>
+  <body>
+
+<div class="degradado">
+
+
+
+<header>
+  <p class="logo">CoffeSystem Web</p>
+
+  <a class="login" href="html/login.html">Iniciar Sesión</a>
+
+  <a class="contactanos" href="#">contactanos</a>
+
+</header>
+
+<h1>La mejor administracion para tu negocio</h1>
+
+
+<p class="des">te ofrecemos la mejor administracion <br>
+   para cafeterias del mercado</p>
+
+
+<a class="mas" href="#">Conocer más</a>
+
+
+<div class="slider">
+
+  <div class="mySlides fade">
+       <img src="img/admin.jpg" >
+       <div class="text">administración</div>
+</div>
+
+<div class="mySlides fade">
+       <img src="img/finan.jpg">
+       <div class="text">Finanzas</div>
+</div>
+
+<div class="mySlides fade">
+       <img src="img/pedido.jpg">
+       <div class="text">Pedidos</div>
+</div>
+
+</div>
+
+
+</div>
+
+<script type="text/javascript">
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+       var i;
+       var slides = document.getElementsByClassName("mySlides");
+       for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+       }
+       slideIndex++;
+       if(slideIndex > slides.length) {slideIndex = 1}
+       slides[slideIndex-1].style.display = "block";
+       setTimeout(showSlides,10000);
+}
+
+</script>
+
+  </body>
+</html>

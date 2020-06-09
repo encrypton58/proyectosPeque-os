@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans', sans-serif;
+    background-image: url("../img/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+header{
+position: absolute;
+width: 100vw;
+height: 69px;
+left: 0px;
+top: 0px;
+background: #EBCB5A;
+}
+
+.login{
+  position: absolute;
+  width: 188px;
+  height: 38px;
+  left: 1150px;
+  top: 11px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  text-decoration: none;
+  line-height: 38px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  color: #FFFFFF;
+}
+
+.contactanos{
+position: absolute;
+width: 176px;
+height: 38px;
+left: 949px;
+top: 11px;
+margin: 0;
+padding: 0;
+text-decoration: none;
+font-style: normal;
+font-weight: bold;
+font-size: 28px;
+line-height: 38px;
+text-align: center;
+color: #FFFFFF;
+}
+
+
+.logo{
+  position: absolute;
+  width: 417px;
+  height: 65px;
+  left: 41px;
+  top: 4px;
+  margin: 0;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 38px;
+  line-height: 65px;
+  text-align: center;
+  color: #8E7004;
+}
+
+.degradado{
+position: absolute;
+width: 100vw;
+height: 100vh;
+left: 0px;
+top: 0px;
+background: rgba(14, 13, 13, 0.44);
+}
+
+.des{
+position: absolute;
+width: 648px;
+height: 193px;
+left: 4%;
+top: 26%;
+font-style: normal;
+font-weight: normal;
+font-size: 38px;
+line-height: 65px;
+color: #FFFFFF;
+}
+
+h1{
+  position: absolute;
+  width: auto;
+  height: auto;
+  left: 20%;
+  top: 10%;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 65px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.mas{
+  padding: 10px;
+  position: absolute;
+  width: auto;
+  height: auto;
+  left: 4%;
+  top: 68%;
+  text-decoration: none;
+  background: #FAC714;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 49px;
+  color: #FFFFFF;
+  text-align: center;
+
+}
+
+.slider{
+  position: absolute;
+  left: 60%;
+  top: 35%;
+  width: 50%;
+  height: 60%;
+}
+
+.mySlides{
+  position: relative;
+  width: 32.5%;
+  height: 100%;
+  color: white;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+
+}
+
+.mySlides img {
+  width: 100%;
+  height: 80%;
+  border-radius: 3px;
+}
+
+.mySlides{
+  display: none;
+}
+
+.fade{
+ -webkit-animation-name:fade;
+ -webkit-animation-duration:1.5s;
+ animation-name:fade;
+ animation-duration:1.5s;
+}
+
+@-webkit-keyframes fade{
+ from{opacity:.4}
+ to{opacity:1}
+}
+
+@keyframes fade{
+ from{opacity:.4}
+ to{opacity:1}
+}
+
+.text{
+ color: #fff;
+ font-size:24px;
+ position:absolute;
+ bottom: 33px;
+ width:100%;
+ text-align:center;
+ text-transform: uppercase;
+}
