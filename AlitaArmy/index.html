@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js" charset="utf-8"></script>
+    <title>AlitaArmy</title>
+  </head>
+  <body>
+
+    <div class="degradado">
+
+      <h1 class="display-1">Somos <span>#AlitaArmy</span> Gallery</h1>
+
+      <h3>Unete y disfruta de imagenes subidas por la comunidad de nuestra guerrera favorita</h3>
+
+
+      <div id="slider">
+
+   <div id="slides">
+      <div id="overflow">
+         <div class="inner">
+            <div class="slide slide_1 fade">
+               <img src="img/alita bb/450_1000.jpg" alt="">
+            </div>
+            <div class="slide slide_2 fade">
+              <img src="img/alitabb.jpeg" alt="">
+            </div>
+            <div class="slide slide_3 fade">
+               <img src="img/alita bb/alita1.png" alt="">
+            </div>
+            <div class="slide slide_4 ">
+               <img src="img/alita bb/bb.png" alt="">
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<br>
+<br>
+<br>
+
+      <a class="btn btn-success mb-0" href="html/login.html">Unete para mas imagenes</a>
+
+<br>
+<br>
+<br>
+
+
+    </div>
+
+
+    <script type="text/javascript">
+    var slideIndex = 0;
+showSlides();
+
+
+
+  function showSlides() {
+     var i;
+     var slides = document.getElementsByClassName("slide");
+     for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+     }
+     slideIndex++;
+     if(slideIndex > slides.length) {slideIndex = 1}
+     slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides,1000);
+
+
+}
+    </script>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  </body>
+</html>
