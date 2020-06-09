@@ -1,0 +1,113 @@
+body{
+  background-image: url("../img/alita bb/bb.png");
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.main-section{
+  margin:0 auto;
+  margin-top: 130px
+}
+.modal-content{
+  background: rgba(127, 127, 127, 0.5);
+  padding: 0 18px;
+  border-radius: 10px;
+}
+
+.user-img img{
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  transition: 0.4s !important;
+}
+
+.user-img {
+  margin-top: -68px;
+  margin-bottom: 45px;
+  transition: 0.4s !important;
+}
+
+.form-group{
+  margin-bottom: 25px;
+}
+
+.form-group #mail{
+  height: 42px;
+  border-radius: 5px;
+  border: 0;
+  letter-spacing: 2px;
+  padding-left: 54px;
+}
+
+.form-group #pass{
+  height: 42px;
+  border-radius: 5px;
+  border: 0;
+  letter-spacing: 2px;
+  padding-left: 10px;
+
+}
+
+.eye{
+  font-size: 1.6em;
+  position: absolute;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  width: 14%;
+  height: 14%;
+  right: 4%;
+  top: 34%;
+
+}
+
+.form-input button{
+  width: 40%;
+  margin: 5px 0 25px;
+}
+
+.btn-success{
+  background-color: !important #1c6288;
+  font-size: 19px;
+  border-radius: 5px;
+  padding: 7px 14px;
+  border: 1px solid #daf1ff;
+}
+.btn-success:hover{
+  background-color: !important #13445e;
+  border: 1px solid #daf1ff;
+}
+
+.forgot{
+  padding: 5px 0 25px;
+}
+
+.forgot a{
+  color: #daf1ff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
