@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactanos</title>
+    <link rel="stylesheet" href="../css/contacto.css">
+  </head>
+  <body>
+
+
+<div class="container">
+  <div class="formBx">
+    <form class="" action="../php/correo.php" method="post">
+      <h2>Contactanos</h2>
+      <div class="inputBox">
+        <input type="text" name="nombre" value="" required>
+        <span>Full name</span>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="email" value="" required>
+        <span>Email address</span>
+      </div>
+      <div class="inputBox">
+        <textarea name="mensage" rows="3" cols="15"></textarea>
+        <span>Type your message here...</span>
+      </div>
+      <div class="inputBox">
+        <input type="submit" name="enviar" value="Send">
+      </div>
+    </form>
+
+  </div>
+    <div class="imgBx">
+      <img src="../img/call.png" alt="">
+    </div>
+</div>
+
+
+  </body>
+</html>
